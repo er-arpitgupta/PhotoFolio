@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-import os
+from os import listdir
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "random string"
-app.config['UPLOAD_FOLDER'] = 'templates'
 db = SQLAlchemy(app)
 
 class Data(db.Model):
@@ -23,7 +22,7 @@ class Data(db.Model):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    photos = list(set(os.listdir('./static/images/photos/')))
+    photos = list(set(listdir('./static/images/photos/')))
     if request.method == 'POST':
         data = Data(request.form['name'], request.form['mail'], request.form['msg'])
         db.session.add(data)
@@ -37,5 +36,4 @@ def fetch():
 
 @app.route('/download/<path:filename>', methods=['GET', 'POST'])
 def download(filename):
-    full_path = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
-    return send_from_directory(full_path, filename)
+    return send_from_directory('./', filename)
