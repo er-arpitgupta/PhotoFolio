@@ -120,19 +120,15 @@ body {
   position: absolute;
   top: 20px;
   border-radius: 20px;
-  padding: 5px;
   right: 30px;
-  transition: all 200ms;
   font-size: 40px;
-  font-weight: bold;
-  color: white;
-  background-color: #a4a4a4;
   line-height: 30px;
   cursor: pointer;
+  background-color: #a4a4a4;
 }
 
 .popup-close:hover {
-  color: rgb(254, 145, 145);
+  color: rgb(100, 100, 100);
 }
 
 .contact {
