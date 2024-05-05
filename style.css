@@ -115,14 +115,19 @@ body {
 
 .portfolio-photos {
   display: flex;
-  flex-wrap: wrap;
-  display: flow-root;
+  gap: 10px;
+}
+
+.portfolio-photos .portfolio-column {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .portfolio-photos img {
-  width: calc(33% - 20px);
+  width: 100%;
   float: inline-start;
-  margin: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
