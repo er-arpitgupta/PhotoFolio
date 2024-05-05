@@ -5,7 +5,7 @@ body {
 .header {
   position: fixed;
   background-color: #1f1f1f;
-  z-index: 99;
+  z-index: 1;
   width: 100vw;
 }
 
@@ -136,6 +136,7 @@ body {
   width: 100vw;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .popup img {
