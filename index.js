@@ -15,6 +15,13 @@ function handleContactIconClick(item) {
 function handleFilterClick(item) {
     $('.filters label').removeClass('active')
     $(`.filters label[for="${item}"]`).addClass('active')
+
+    if (item === 'all') {
+        $('.portfolio-photos img').css('display', 'block');
+    } else {
+        $('.portfolio-photos img').css('display', 'none');
+        $(`.portfolio-photos #${item}`).css('display', 'block');
+    }
 }
 
 function handleImageClick(image) {
